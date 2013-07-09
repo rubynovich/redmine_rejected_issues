@@ -1,0 +1,12 @@
+# English strings go here for Rails i18n
+en:
+  issuesreportedbymewithstatus: "Solved issues"
+  label_solved_issue_plural: "Solved issues"
+  label_solved_issue_status: "Status for solved issues"
+  mail_body_greeting: "Dear  %{firstname}  %{lastname},"
+  mail_subject_solved_issues1: " %{count} solved issue must be closed"
+  mail_subject_solved_issues2: " %{count} solved issues must be closed"
+  mail_subject_solved_issues5: " %{count} solved issues must be closed"
+  mail_body_solved_issues1: " %{count} solved issue must be closed:"
+  mail_body_solved_issues2: " %{count} solved issues must be closed:"
+  mail_body_solved_issues5: " %{count} solved issues must be closed:"  

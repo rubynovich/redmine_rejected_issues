@@ -1,0 +1,24 @@
+%p= l(:mail_body_greeting, :firstname => @firstname, :lastname => @lastname )
+
+- if @rejected_issues.present?
+  - issues_count = @rejected_issues.count
+  - case issues_count
+    - when 1
+      %p= l(:mail_body_rejected_issues1, :count => issues_count)
+    - when 2..4
+      %p= l(:mail_body_rejected_issues2, :count => issues_count)
+    - else
+      %p= l(:mail_body_rejected_issues5, :count => issues_count)
+
+%ul
+  - @rejected_issues.each do |issue|
+    %li
+      =h issue.due_date
+      ="-"
+      =h issue.project
+      ="-"
+      =link_to("#{issue.tracker} ##{issue.id}", :controller => 'issues', :action => 'show', :id => issue, :only_path => false)
+      =":"
+      =h issue.subject
+
+%p= link_to l(:label_issue_view_all), @issues_url

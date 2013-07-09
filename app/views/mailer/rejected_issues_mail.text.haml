@@ -1,0 +1,16 @@
+= l(:mail_body_greeting, :firstname => @firstname, :lastname => @lastname )
+
+- if @rejected_issues.present?
+  - issues_count = @rejected_issues.count
+  - case issues_count
+    - when 1
+      = l(:mail_body_rejected_issues1, :count => issues_count)
+    - when 2..4
+      = l(:mail_body_rejected_issues2, :count => issues_count)
+    - else
+      = l(:mail_body_rejected_issues5, :count => issues_count)
+
+- @rejected_issues.each do |issue|
+  = "* #{issue.due_date} - #{issue.project} - #{issue.tracker} ##{issue.id}: #{issue.subject}"
+
+= @issues_url

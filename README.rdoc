@@ -1,0 +1,5 @@
+= Solved issues (redmine plugin)
+
+Block for my/page and rake-task for mail delivery (IssueStatus = "Solved")
+
+Redmine 2.3 ready

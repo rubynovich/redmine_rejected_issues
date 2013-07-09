@@ -1,0 +1,12 @@
+# Russian strings go here for Rails i18n
+ru:
+  issuesreportedbymewithstatusreject: "Отказанные задачи"
+  label_rejected_issue_plural: "Отказанные задачи"
+  label_rejected_issue_status: "Статус отказанных задач"
+  mail_body_greeting: "Уважаемый  %{firstname}  %{lastname},"
+  mail_subject_rejected_issues1: " %{count} отказанная задача должна быть закрыта"
+  mail_subject_rejected_issues2: " %{count} отказанные задачи должны быть закрыты"
+  mail_subject_rejected_issues5: " %{count} отказанных задач должны быть закрыты"
+  mail_body_rejected_issues1: " %{count} отказанная задача, поставленная Вами, должна быть закрыта:"
+  mail_body_rejected_issues2: " %{count} отказанные задачи, поставленные Вами, должны быть закрыты:"
+  mail_body_rejected_issues5: " %{count} отказанных задач, поставленных Вами, должны быть закрыты:"
