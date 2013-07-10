@@ -11,6 +11,6 @@ namespace :redmine do
   task :send_rejected_issues => :environment do
     options = {}
     options[:cc] = ENV['cc'] if ENV['cc']
-    p Mailer.rejected_issues(options)
+    Mailer.rejected_issues(options)
   end
 end

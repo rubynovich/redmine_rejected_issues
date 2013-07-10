@@ -1,16 +1,16 @@
 - status_id = Setting[:plugin_redmine_rejected_issues][:issue_status]
-- issues = Issue.visible.open.where(:author_id => User.current.id, :status_id => status_id)
+- issues = Issue.visible.open.where(author_id: User.current.id, status_id: status_id)
 
 %h3
   = l(:label_rejected_issue_plural)
   = "(#{issues.count})"
 
-- reported_issues = issues.limit(10).includes(:status, :project, :tracker, :priority).order("#{IssuePriority.table_name}.position DESC, #{Issue.table_name}.updated_on DESC").all
+- rejected_issues = issues.limit(10).includes(:status, :project, :tracker, :priority).order("#{IssuePriority.table_name}.position DESC, #{Issue.table_name}.updated_on DESC").all
 
-= render :partial => 'list_simple', :locals => { :issues => reported_issues, :allows => [:assigned_to] }
+= render partial: 'list_simple', locals: { issues: rejected_issues, allows: [:assigned_to] }
 
 %p.small
-  = link_to l(:label_issue_view_all), :controller => 'issues', :action => 'index', :set_filter => 1, :author_id => 'me', :status_id => status_id, :sort => 'priority:desc,updated_on:desc'
+  = link_to l(:label_issue_view_all), controller: 'issues', action: 'index', set_filter: 1, author_id: 'me', status_id: status_id, sort: 'priority:desc,updated_on:desc'
 
 - content_for :header_tags do
-  = auto_discovery_link_tag(:atom, {:controller => 'issues', :action => 'index', :set_filter => 1, :author_id => 'me', :status_id => status_id, :format => 'atom', :key => User.current.rss_key}, {:title => l(:label_rejected_issue_plural)})
+  = auto_discovery_link_tag(:atom, {controller: 'issues', action: 'index', set_filter: 1, author_id: 'me', status_id: status_id, format: 'atom', key: User.current.rss_key}, {title: l(:label_rejected_issue_plural)})
