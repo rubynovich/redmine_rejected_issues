@@ -1,3 +1,3 @@
 %p
   = content_tag(:label, l(:label_rejected_issue_status))
-  = collection_select(:settings, :issue_status, IssueStatus.all, :id, :name, prompt: t(:prompt_please_select))
+  = select_tag("settings[issue_status]", options_from_collection_for_select(IssueStatus.all, :id, :name, @settings[:issue_status].try(:to_i))
